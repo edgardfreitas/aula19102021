@@ -1,0 +1,103 @@
+package br.bhaskara;
+
+public class Bhaskara {
+    private Float a;
+    private Float b;
+    private Float c;
+    private double bhaskara;
+    private String resultado;
+    private double  x1, x2;
+
+    public float getA() {
+        return a;
+    }
+    public void setA(Float a) {
+        this.a = a;
+    }
+    public float getB() {
+        return b;
+    }
+    public void setB(Float b) {
+        this.b = b;
+    }
+    public float getC() {
+        return c;
+    }
+    public void setC(Float c) {
+        this.c = c;
+    }
+    public double getBhaskara() {
+        return bhaskara;
+    }
+    public String getResultado() {
+        return resultado;
+    }
+    public double getX1() {
+        return x1;
+    }
+    public double getX2() {
+        return x2;
+    }
+    public void setX1(float x1) {
+        this.x1 = x1;
+    }
+    public void setX2(float x2) {
+        this.x2 = x2;
+    }
+    
+    public double calculabhaskara(){  
+        bhaskara = (Math.pow(b,2) - (4 * a * c));   
+        
+        if (a<=0){
+            bhaskara=0;
+        }
+        else{
+        
+        if (bhaskara<0){
+        resultadofinal();    
+        }
+        
+        if (bhaskara == 0) {
+          x1 = (-b + Math.sqrt(bhaskara)) /( 2 * a);
+           preparaResultadox1();
+        }          
+        
+         if (bhaskara > 0) {
+          x1 = (-b + Math.sqrt(bhaskara)) /( 2 * a);
+          x2 = (-b - Math.sqrt(bhaskara)) /( 2 * a);
+           preparaResultadox1();
+           preparaResultadox2();      
+    }
+    }
+    return bhaskara;
+    }
+    
+    public String resultadofinal(){
+    
+    if(a<=0){
+        resultado = "Operação invalida o valor de A não pode menor ou igual a 0";
+    }else{
+        
+    if (bhaskara<0){
+    resultado  = "Não existem raizes reais Delta < 0";    
+    }
+    if (bhaskara == 0) {
+        resultado  = "Possui apenas uma Raiz (X1)";    
+    }
+    if (bhaskara>0) {
+        resultado  = "Possui duas raizes X1 e X2";    
+    }
+    
+    }
+     return resultado;
+    }
+
+     public  double  preparaResultadox1() {
+        return x1;     
+    }
+     
+      public  double  preparaResultadox2() {
+       return x2;
+    }
+}
+
